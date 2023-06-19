@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/milligram/1.4.1/milligram.css">
+      <script src="https://cdn.tailwindcss.com"></script>
+    <title>Javascript Event problem-07 </title>
+    <style>
+      
+    </style>
+</head>
+<body>
+    <div class="container">
+     <div class="row bg-slate-50 py-6 ">
+        <div class="column">
+        <h3 class="text-center text-black my-4 font-semibold" id="ronaldo"> Cristiano Ronaldo </h3>
+        <img class="h-80 w-90 rounded-md mx-auto shadow-xl bg-white " id="img-div" src="images/pngegg (1).png" alt="Ronald">
+     </div>
+
+      </div>
+    </div>
+    <script>
+        document.addEventListener('click',function(event){
+            var x= event.clientX;
+            var y= event.clientY;
+            alert(`Click x=${x} y=${y} `);
+        })
+        document.addEventListener("keypress",function(event){
+         alert(`You have pressed keyCode is : ${event.keyCode}`)
+        })
+      const myImg =  document.getElementById('img-div');
+      
+      myImg.addEventListener("mouseover",function(e){
+           myImg.src='images/pngegg.png';
+           document.getElementById('ronaldo').innerHTML ='Leonel Messi';
+            
+      })
+    </script>
+</body>
+</html>

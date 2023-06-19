@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/milligram/1.4.1/milligram.css">
+     <script src="https://cdn.tailwindcss.com"></script>
+    <title>javascript input validation</title>
+</head>
+<body>
+    <div class="container">
+        <h2 class="text-center  text-gray-950 text-2xl font-bold	 ">Form validation in javascript</h2>
+        <div class="row h-100 w-100 bg-white p-6">
+            
+            <div class="outer-from p-6 bg-gradient-to-r from-indigo-600 to-blue-500 mx-auto  max-w-lg ">
+                <form  action="">
+                <label class="text-black" for="name">name</label>
+                <input  class="text-black border text-md  ring-4 p-2" type="text" name="name" id="name" placeholder="name here ..." required>
+                  <p id="errroName" class=""></p>
+
+                <label class="text-black" for="email"> email</label>
+                <input  class="text-black border text-md  ring-4 p-2" type="email" name="email" id="email" placeholder="Enter email" required>
+                <label class="text-black" for="password"> password</label>
+                <input  class="text-black border text-md  ring-4 p-2" type="password" name="password" id="password" placeholder="At least 8 Characters" required>
+                 <p id="msg" class="errorMsg hidden  "></p>
+                 <label class="text-black" for="confirmPassword"> confirmPassword</label>
+                <input class="text-black border text-md   ring-4 p-2" required type="password" name="confirmPassword" id="confirmPassword" placeholder="Re-Enter your password">
+                <p id="errorConfirm" class="hidden">soedjhdjh</p>
+                <input id="formSubmit"  type="submit" value="Submit">
+            </form>
+            </div>
+           
+        </div>
+    </div>
+<script>
+    function validatePassword (password){
+                var passwordPattern = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}$/;
+               
+                var isValid =  passwordPattern.test(password);
+                return isValid;
+
+ // (?=.*\d) => at least one digit 
+ // ?=.*[a-z] => at least one lowerCase letter
+ // ?=.*[A-Z] => At least one UpperCase letter
+ // .{8,}=> minimum length will be 8
+
+    }
+function isMatching(confirmPassword,password){
+          if(confirmPassword === password){
+             var errorConfirm=  document.getElementById('errorConfirm');
+             errorConfirm.classList.remove('hidden');
+             errorConfirm.classList.add('text-green-500')
+             errorConfirm.innerHTML= 'Password Matched';
+          }
+          else{
+             var errorConfirm=  document.getElementById('errorConfirm');
+             errorConfirm.classList.remove('hidden');
+             errorConfirm.classList.add('text-red-500')
+             errorConfirm.innerHTML= 'Password is not Matched';
+          }
+           
+
+}
+ document.getElementById('formSubmit').addEventListener('click', function(e){
+       e.preventDefault();
+       const confirmPassword= document.getElementById('confirmPassword').value;
+      
+       const password=document.getElementById('password').value;
+   console.log(password);
+    const validationResult =  validatePassword(password);
+    if(!validationResult){
+      var msg= document.getElementById('msg');
+      msg.classList.remove('hidden');
+      msg.classList.add('text-red-900')
+      
+      msg.innerHTML='include at least 1 digit, upperCase ,LowerCase ';
+}
+else{
+     var msg= document.getElementById('msg');
+      msg.classList.remove('hidden');
+       msg.classList.add('text-green-500')
+   msg.innerHTML ='Accepted'
+    isMatching(confirmPassword,password);
+}
+
+
+
+
+})
+ 
+   
+
+</script>
+    
+</body>
+</html>

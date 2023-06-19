@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Window Object</title>
+</head>
+<body>
+    <div class="container">
+       <button onclick="openNewWindow('https://www.w3schools.com/js/js_window.asp',600,800)">Click me</button>
+    </div>
+    <script>
+        //04 no Problem solution ........................
+        const openNewWindow=(url,height,width)=>{
+            const windowFeatures = `width=${width},height=${height},left=${(screen.width - width) / 2},top=${(screen.height - height) / 2}`;
+            window.open(url,windowFeatures);
+          
+        }
+        ///When you click the button then a new window is opened.
+        
+
+
+
+
+        
+//05 no. Problem Solution ..................
+      var name = navigator.appName;
+      document.write(name +"<br/>");
+      var version= navigator.appVersion;
+      document.write(version);
+
+
+
+
+    //   const navigator =()=>{
+   
+    //          var name = navigator.appName;
+    //   document.write(name +"<br/>");
+    //   var version= navigator.appVersion;
+    //   document.write(version);
+
+    //   }
+    //   navigator();
+     
+    
+    </script>
+    
+</body>
+</html>

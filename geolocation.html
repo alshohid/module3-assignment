@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/milligram/1.4.1/milligram.css">
+
+    <title>Geolocation </title>
+</head>
+<body>
+    <div class="container">
+        <button onclick="getLocation()">Track location</button>
+        <h4 id="showing"></h4>
+
+    </div>
+    <script>
+var x= document.getElementById('showing');
+     const getLocation =()=>{
+        if(navigator.geolocation){
+            navigator.geolocation.getCurrentPosition(showPosition);
+        }
+        else{
+         x.innerHTML = "Geolocation is not Supported by this browser";
+        }
+
+     }
+     function showPosition(position){
+        x.innerHTML=` Latitude : ${position.coords.latitude} <br/> Longitude : ${position.coords.longitude}`;
+     }
+
+
+     ///navigator.geolocation object represents the Geolocation API, which provides access to the device's geolocation information.
+     //getCurrentPosition() method is called on the navigator.geolocation object to retrieve the current position.
+
+    </script>
+    
+</body>
+</html>

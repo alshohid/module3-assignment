@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <script src="https://cdn.tailwindcss.com"></script>
+    <title>Date Object </title>
+</head>
+<body>
+    <div class="container bg-slate-100 h-40 mx-auto">
+      <h4 class="text-center font-semibold text-xl py-6" id="displayDay"></h4>
+    </div>
+    <script>
+       //01--(a)..........................
+
+const daysOfWeek = (date)=>{
+   const dat = new Date(date);
+   const dayNumber = dat.getDay();
+    const days =["SunDay","MonDay","TuesDay","WednesDay", "ThursDay","FriDay","SaturDay"];
+    const daysOfWeek =days[dayNumber];
+    return daysOfWeek;
+}
+const date = "2021-05-12";
+const result =daysOfWeek(date);
+console.log(result);
+//01--(b)
+const currentDate= new Date();
+ const currentDay = daysOfWeek(currentDate);
+ console.log(currentDay);
+    document.getElementById('displayDay').innerHTML=` Today is ${currentDay}`;
+
+// dat.getDay() return value (0-6)
+// Date object is used to work with dates and times.
+//const dat = new Date(date);, the Date object is being created with the date variable as the argument.
+
+
+
+
+
+    </script>
+    
+    
+</body>
+</html>
