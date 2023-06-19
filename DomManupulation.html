@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/milligram/1.4.1/milligram.css">
+     <script src="https://cdn.tailwindcss.com"></script>
+    <title>Dom manipulation css class</title>
+</head>
+<body>
+    <div class="container">
+        <p id="myPara"> This is Paragraph </p>
+        <button onclick="changeBackground()"> Click me </button>
+    </div>
+    <script>
+         const changeBackground =()=>{
+            let myPara= document.getElementById('myPara');
+            myPara.classList.add('bg-yellow-500')
+         }
+    </script>
+</body>
+</html>

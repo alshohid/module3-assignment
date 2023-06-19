@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/milligram/1.4.1/milligram.css">
+      <script src="https://cdn.tailwindcss.com"></script>
+    <title>change image 12 and 13 </title>
+</head>
+<body>
+    <!-- problem 12 and 13 -->
+    <div class="container">
+     <div class="row bg-slate-50 py-6 ">
+        <div class="column">
+        <h3 class="text-center text-black my-4 font-semibold" id="ronaldo"> Cristiano Ronaldo </h3>
+        <img class="h-80 w-90 rounded-md mx-auto shadow-xl bg-white " id="img-div" src="images/pngegg (1).png" alt="Ronald">
+        <button onclick="changePicture()">Change Picture</button>
+     </div>
+         
+      </div>
+      <div class="paraList">
+        <p class="para1">paragraph one</p>
+        <P id="para2"> paragraph two</P>
+        <P class="para3"> paragraph three</P>
+      </div>
+    </div>
+    <script>
+
+        const changePicture = ()=>{
+            const myImg =  document.getElementById('img-div'); 
+              myImg.src='images/pngegg.png';
+           document.getElementById('ronaldo').innerHTML ='Leonel Messi';
+        }
+        document.querySelector('.para1').classList.add('text-red-500')
+        document.querySelector('#para2').classList.add('text-red-500')
+    
+        document.querySelector('.para3').classList.add('text-red-500')
+           
+    </script>
+</body>
+</html>

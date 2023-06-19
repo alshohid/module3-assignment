@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Api placeholder</title>
+    <link rel="stylesheet" href="css/milligram.css">
+</head>
+<body>
+    
+     <div class="container">
+        <div class="row ">
+             <table class="width-100">
+                <thead>
+                    <tr>
+                        <th >name </th>
+                        <th >username </th>
+                        <th >email </th>
+                       
+                            
+                            <th>street</th>
+                            <th>suite</th>
+                            <th>zipcode</th>
+                            
+                            
+                        
+                        <th >phone </th>
+                        <th >website </th>
+                         <th>Delete</th>
+                         <th>Update</th>
+                    </tr>
+                </thead>
+                <tbody id="userList">
+
+                </tbody>
+             </table>
+        </div>
+
+     </div>
+
+    <script src="js/axios.min.js"></script>
+     <script>
+        async function showUser (){
+            let url = `https://jsonplaceholder.typicode.com/users`;
+            let res = await axios.get(url);
+            let users= res.data ;
+             users.map((user)=>{
+                    document.getElementById('userList').innerHTML +=(`
+                    <tr>
+                                <td> ${user.name}</td>
+                                <td> ${user.username}</td>
+                                <td> ${user.email}</td>
+                                
+
+                                    <td>${user.address.street} </td>
+                                    <td>${user.address.suite} </td>
+                                    <td>${user.zipcode} </td>
+                                    <td>${user.phone} </td>
+                                    <td>${user.website} </td>
+                                    <td> <button onclick='deleteUser('${user.id}')'> Delete </button> </td>
+                                     <td> <button onclick='updateUser('${user.id}')'> Update</button> </td>
+
+                                    
+                               
+                     </tr>
+                    
+                    
+                    `)
+             })
+        }  
+        showUser();
+  </script>
+    
+</body>
+</html>
+
+ 
